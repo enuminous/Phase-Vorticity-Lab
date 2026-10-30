@@ -1,0 +1,132 @@
+{
+  "schema": "PVL-provenance-1",
+  "date": "2026-10-30",
+  "repository": "enuminous/Monolithic-102-Zoo-Lean4",
+  "commit": "6e85c9e558652f5033c55d70f33077eff7a9fd89",
+  "lean": "4.28.0",
+  "mathlib": "8f9d9cff6bd728b17a24e163c9402775d9e6a365",
+  "ci": {
+    "run": 40600670063,
+    "job": 122527682065,
+    "status": "success",
+    "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/actions/runs/40600670063/job/122527682065",
+    "interpretation": "Recorded upstream CI inspected; local Lean rebuild not performed. Cache replay recorded, not an independent clean build."
+  },
+  "snapshot_normalization": "Source snapshots preserved byte-for-byte and verified by original Git blob SHA-1; SHA256SUMS additionally records packaged bytes.",
+  "files": [
+    {
+      "original_path": "analysis/CatalogueAnalysis.lean",
+      "local_path": "formal/upstream-analysis/CatalogueAnalysis.lean",
+      "git_blob_sha": "f8a0ee3e11bcc94ddcde47e0cfab8160f2289d6d",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/CatalogueAnalysis.lean"
+    },
+    {
+      "original_path": "analysis/SpecifiedModels.lean",
+      "local_path": "formal/upstream-analysis/SpecifiedModels.lean",
+      "git_blob_sha": "b2c84a9927d375003139b22de9570eeaa8c813b7",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/SpecifiedModels.lean"
+    },
+    {
+      "original_path": "analysis/Madelung.lean",
+      "local_path": "formal/upstream-analysis/Madelung.lean",
+      "git_blob_sha": "3fa4a890ebd0ff2523b6552aa75dd7f9a8d0a3f8",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/Madelung.lean"
+    },
+    {
+      "original_path": "analysis/Vorticity.lean",
+      "local_path": "formal/upstream-analysis/Vorticity.lean",
+      "git_blob_sha": "07a871a1be5a2ad4396120c0f28c7b584c478bed",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/Vorticity.lean"
+    },
+    {
+      "original_path": "analysis/Fluids.lean",
+      "local_path": "formal/upstream-analysis/Fluids.lean",
+      "git_blob_sha": "9d31e10fc485095f15df3fad0ae2af3cdd6c0b23",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/Fluids.lean"
+    },
+    {
+      "original_path": "analysis/RecursiveLagrangian.lean",
+      "local_path": "formal/upstream-analysis/RecursiveLagrangian.lean",
+      "git_blob_sha": "51704c8270c24357e3301c7fce6e1c35d8924db4",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/RecursiveLagrangian.lean"
+    },
+    {
+      "original_path": "analysis/ScalarAction.lean",
+      "local_path": "formal/upstream-analysis/ScalarAction.lean",
+      "git_blob_sha": "7639d8bc4c25f5c22fdaf8288742c7a427a9df68",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/ScalarAction.lean"
+    },
+    {
+      "original_path": "analysis/LinearizedGravity.lean",
+      "local_path": "formal/upstream-analysis/LinearizedGravity.lean",
+      "git_blob_sha": "5c5ea6eeaf57a57770085e4261345017fbfde0c3",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/LinearizedGravity.lean"
+    },
+    {
+      "original_path": "analysis/RotationKinematics.lean",
+      "local_path": "formal/upstream-analysis/RotationKinematics.lean",
+      "git_blob_sha": "4c536604096e60ac93f8363502a5071244bac00f",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/RotationKinematics.lean"
+    },
+    {
+      "original_path": "analysis/RotatingCosmology.lean",
+      "local_path": "formal/upstream-analysis/RotatingCosmology.lean",
+      "git_blob_sha": "5cd4139a7fe0a328abd6db600778e58f98c0fc45",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/RotatingCosmology.lean"
+    },
+    {
+      "original_path": "analysis/Audit.lean",
+      "local_path": "formal/upstream-analysis/Audit.lean",
+      "git_blob_sha": "e17d58c093abdac25a76110e55a39cf65e7e03c9",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/Audit.lean"
+    },
+    {
+      "original_path": "analysis/lakefile.toml",
+      "local_path": "formal/upstream-analysis/lakefile.toml",
+      "git_blob_sha": "42bae10de985ff69542514ca657f97647e9574bf",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/lakefile.toml"
+    },
+    {
+      "original_path": "analysis/lake-manifest.json",
+      "local_path": "formal/upstream-analysis/lake-manifest.json",
+      "git_blob_sha": "bfdb88550d3df5c8fa11fb9a5896bafc47578072",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/lake-manifest.json"
+    },
+    {
+      "original_path": "analysis/lean-toolchain",
+      "local_path": "formal/upstream-analysis/lean-toolchain",
+      "git_blob_sha": "4c685fa085fa1c66103533e992fc82c014a12142",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/lean-toolchain"
+    },
+    {
+      "original_path": "analysis/MADELUNG.md",
+      "local_path": "evidence/upstream/MADELUNG.md",
+      "git_blob_sha": "e2cf688381256d23601834ba814a7dcfda4a13c5",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/MADELUNG.md"
+    },
+    {
+      "original_path": "analysis/VORTICITY.md",
+      "local_path": "evidence/upstream/VORTICITY.md",
+      "git_blob_sha": "d343d11b3a1bf8f9577b9e140cb6eb126cd2773c",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/VORTICITY.md"
+    },
+    {
+      "original_path": "analysis/ROTATION_COSMOLOGY.md",
+      "local_path": "evidence/upstream/ROTATION_COSMOLOGY.md",
+      "git_blob_sha": "c24f5c5dedf9695ac822f7f638ff65e7877a87f0",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/ROTATION_COSMOLOGY.md"
+    },
+    {
+      "original_path": "analysis/COVERAGE.md",
+      "local_path": "evidence/upstream/COVERAGE.md",
+      "git_blob_sha": "a6a47d18166bce7042e080457d475b29ba8560cf",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/COVERAGE.md"
+    },
+    {
+      "original_path": "analysis/scripts/test_axiom_audit.py",
+      "local_path": "formal/upstream-analysis/scripts/test_axiom_audit.py",
+      "git_blob_sha": "78a3b4e695e15613f07309bc690e5c83cf1ca0b5",
+      "source": "https://github.com/enuminous/Monolithic-102-Zoo-Lean4/blob/6e85c9e558652f5033c55d70f33077eff7a9fd89/analysis/scripts/test_axiom_audit.py"
+    }
+  ]
+}

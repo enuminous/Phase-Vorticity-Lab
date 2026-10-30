@@ -1,0 +1,20 @@
+{
+  "schema": "PVL-verification-1",
+  "date": "2026-10-30",
+  "version": "0.1.0",
+  "numericalTests": {"passed": 18, "failed": 0, "record": "numerical-tests.tap"},
+  "sourceSnapshots": {"verified": 19, "method": "Git blob SHA-1 against pinned upstream identities"},
+  "benchmark": {"passed": true, "scope": "Four fixed probes in four presets at 112 by 112 source cells", "maximumRelativeL2Error": 0.006739373, "record": "numerical-benchmark.json"},
+  "browserChecks": [
+    "Default dipole: 11 passing checks, 2304 source cells, 0.36 percent displayed probe error",
+    "Missing phase fault: rejected, integration disabled and previous field cleared",
+    "Missing boundary: unresolved, integration disabled",
+    "Co-rotating pair integrates after controls change",
+    "Quadrupole at 32 by 32: accepted symmetry gate with distinct 44.80 percent accuracy warning",
+    "Model and provenance dialog opens and displays scope",
+    "JSON and CSV exports download and parse; default CSV has 965 data rows"
+  ],
+  "browserRecords": ["browser-default-run.json", "browser-default-field.csv"],
+  "formal": {"localRebuild": "not run: Lean/Lake unavailable", "newSourceBridge": "not elaborated locally", "upstreamEvidence": "Successful recorded analytic CI with replay/cache; see provenance.json"},
+  "limits": "Numerical tests are finite implementation checks, not a Lean proof of this JavaScript or a general expression validator. Mobile viewport behavior was not exercised."
+}

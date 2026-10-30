@@ -1,0 +1,313 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="A standalone Monolithic laboratory for phase currents, rotational covariance and gated 2D Biot–Savart reconstruction."><title>Monolithic · Phase / Vorticity Lab</title><style>:root{color-scheme:dark;--bg:#090e14;--panel:#101820;--border:#26313b;--muted:#8f9eaa;--ink:#e7eef2;--mint:#85ead0;--orange:#f8ab70;--red:#ff8797}*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.55 -apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif}button,input,select{font:inherit}button,a,input,select{touch-action:manipulation}a{color:var(--mint);text-decoration:none}button{cursor:pointer}button:disabled{cursor:not-allowed;opacity:.45}button:focus-visible,a:focus-visible,select:focus-visible,input:focus-visible{outline:2px solid var(--mint);outline-offset:4px}.top{height:74px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;padding:0 34px}.brand{color:var(--ink);font-size:12px;letter-spacing:.12em;font-weight:700;display:flex;align-items:center;gap:13px}.mark{font-size:21px;display:inline-grid;place-items:center;width:30px;height:32px;border:1px solid var(--mint);color:var(--mint)}.soft,.sep{color:var(--muted);font-size:10px}.topright{display:flex;align-items:center;gap:25px}.online{color:var(--mint);font-size:9px;letter-spacing:.14em}.online:before{content:'●';margin-right:6px}.quiet{background:transparent;border:0;color:var(--muted);font-size:12px;padding:8px 0}.quiet:hover{color:var(--ink)}main{max-width:1800px;margin:auto;padding:29px 34px 0}.intro{display:flex;align-items:center;justify-content:space-between;margin-bottom:27px}.eyebrow{font-size:10px;font-weight:650;letter-spacing:.14em;color:var(--muted)}.eyebrow span{color:var(--orange);margin:0 10px}h1{font-size:clamp(35px,3.7vw,55px);font-weight:500;line-height:1.08;letter-spacing:-.045em;margin:12px 0}h1 span{color:var(--mint);font-weight:300}p{color:var(--muted);margin:10px 0}.intro p{font-size:14px}.stage{display:flex;align-items:center;gap:20px;font-size:11px;color:var(--muted);margin-top:22px}.stage b{font-weight:400;color:var(--mint);margin-right:6px}.stage i{color:#435360;font-style:normal}.metrics{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:9px;margin-bottom:18px;background:#0d151d}.metrics>div{padding:16px 21px;border-right:1px solid var(--border);display:flex;flex-direction:column}.metrics>div:last-child{border:0}.metrics small{color:var(--muted);font-size:9px;letter-spacing:.12em}.metrics strong{font:500 24px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;letter-spacing:-.04em}.metrics span{font-size:10px;color:var(--muted)}.workspace{display:grid;grid-template-columns:236px minmax(360px,1fr) 272px;gap:16px;align-items:stretch}.panel{background:var(--panel);border:1px solid var(--border);border-radius:9px;overflow:hidden}.controls{padding:19px}.panelhead{display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:18px}.tiny{font:9px ui-monospace,SFMono-Regular,Consolas,monospace;color:var(--muted);letter-spacing:.035em}.controls label{display:block;font-size:11px;color:#c2d0d8;margin-bottom:7px}.controls select{width:100%;font-size:11px;border:1px solid #35434f;border-radius:4px;padding:9px 7px;background:#17232d;color:var(--ink)}.control{margin:17px 0}.control output{float:right;font:11px ui-monospace,monospace;color:var(--mint)}input[type=range]{width:100%;height:3px;accent-color:var(--mint);cursor:pointer;margin:6px 0}.rangeends{display:flex;justify-content:space-between;font:9px ui-monospace,monospace;color:#6f8494}.divider{height:1px;background:var(--border);margin:20px 0 17px}.hint{font-size:10px;line-height:1.6;margin:11px 0 17px}.primary{background:var(--mint);border:0;color:#102921;padding:12px 10px;width:100%;border-radius:5px;font-weight:650;font-size:11px;display:flex;justify-content:space-between}.primary:hover{filter:brightness(1.1)}.reset{display:block;margin:8px auto 0;font-size:10px}.fieldpanel{display:flex;flex-direction:column;min-width:0}.fieldhead{height:55px;display:flex;align-items:center;justify-content:space-between;padding:0 15px;gap:10px}.tabs{display:flex;gap:3px}.tabs button{font-size:10px;background:none;color:var(--muted);border:0;border-radius:4px;padding:6px 9px}.tabs .active{background:#243b3c;color:var(--mint)}.canvaswrap{position:relative;background:#090f16;min-height:470px;flex:1;overflow:hidden}canvas{width:100%;height:100%;position:absolute;inset:0;display:block}.canvaslabel{position:absolute;top:16px;left:17px;display:flex;align-items:center;gap:7px;font:9px ui-monospace,monospace;color:#b2c9d8;background:#08131cce;padding:5px 8px;border-radius:3px;pointer-events:none}.dot{width:5px;height:5px;border-radius:50%;background:var(--mint)}.canvasnote{position:absolute;right:18px;top:18px;font-size:12px;color:#b8d5d1;pointer-events:none;text-shadow:0 1px 4px #000}.axislabel{position:absolute;right:20px;bottom:17px;color:#9eafb9;font:9px ui-monospace,monospace}.ylabel{position:absolute;left:14px;bottom:67px;transform:rotate(-90deg);transform-origin:left center;color:#9eafb9;font:9px ui-monospace,monospace}.legend{position:absolute;left:50%;bottom:19px;transform:translateX(-50%);display:flex;align-items:center;gap:8px;color:#b5c3cc;font:9px ui-monospace,monospace;pointer-events:none}.legend>div{width:125px;height:4px;background:linear-gradient(90deg,#68e0e6,#a286ff,#ff879d,#ffc47d,#8ce2b4,#68e0e6);border-radius:3px}.fieldfoot{padding:14px;display:grid;grid-template-columns:1.4fr 1fr 1fr 1fr;gap:6px;border-top:1px solid var(--border)}.fieldfoot>div{display:flex;flex-direction:column;gap:6px}.fieldfoot strong{font:11px ui-monospace,monospace;color:#d5e7e9}.fieldnotice{padding:10px 15px;color:var(--muted);font-size:10px;border-top:1px solid var(--border);line-height:1.6}.auditpanel{padding:19px 16px;display:flex;flex-direction:column}.auditpanel .panelhead{margin-bottom:10px}.check{padding:8px 0;border-bottom:1px solid #26313b77}.check summary{list-style:none;cursor:pointer;display:flex;align-items:center;gap:8px;font-size:10px}.check summary::-webkit-details-marker{display:none}.check summary:before{content:'+';color:#5f7482;font:11px ui-monospace,monospace}.check[open] summary:before{content:'−'}.check summary span:first-of-type{flex:1}.badge{color:var(--mint);font:8px ui-monospace,monospace;letter-spacing:.05em}.badge.fail{color:var(--red)}.badge.unresolved{color:var(--orange)}.check p{font-size:10px;margin:7px 0}.check code{font-size:9px;color:var(--mint)}.auditbottom{margin-top:auto;padding-top:20px}.evidencetag{font-size:8px;color:var(--orange);letter-spacing:.15em}.auditbottom p{font-size:10px;line-height:1.7}.secondary{background:transparent;border:1px solid #46575e;color:var(--ink);padding:10px 6px;width:100%;border-radius:4px;font-size:10px;margin-top:8px}.auditbottom .quiet{font-size:10px;display:block;width:100%;text-align:center}.lower{display:grid;grid-template-columns:1.15fr 1fr;gap:16px;margin-top:18px}.lower article{padding:24px}h2{font-size:18px;font-weight:500;letter-spacing:-.02em;margin:10px 0}.formula{font:14px/1.7 ui-monospace,monospace;color:var(--mint);margin:19px 0 12px}.formula span{color:#8d9ba8;margin:0 8px}.lower p{font-size:11px;line-height:1.8;max-width:690px}.smallgrid{display:grid;grid-template-columns:1fr 1fr;gap:20px;border-top:1px solid var(--border);padding-top:15px;margin-top:18px}.smallgrid div{display:flex;flex-direction:column;gap:7px}.smallgrid small{font-size:9px;color:var(--orange);letter-spacing:.05em}.smallgrid span{font-size:10px;color:var(--muted)}.sourceitems{list-style:none;padding:0;margin:15px 0}.sourceitems li{display:grid;grid-template-columns:80px 1fr;gap:1px 10px;margin:13px 0}.sourceitems b{font:10px ui-monospace,monospace;color:var(--mint)}.sourceitems span{font-size:11px;color:#bdcbd4}.sourceitems em{grid-column:2;font-size:9px;color:var(--muted);font-style:normal}.sourcelink{font-size:10px}footer{display:flex;justify-content:space-between;color:#6e7f8e;padding:23px 0;font:9px ui-monospace,monospace}dialog{background:var(--panel);color:var(--ink);border:1px solid #45605c;border-radius:12px;padding:32px;max-width:700px;max-height:85vh}dialog::backdrop{background:#03080dc9;backdrop-filter:blur(5px)}dialog p{font-size:13px;line-height:1.8}dialog h3{font-size:13px;color:var(--mint);margin-top:23px}.close{float:right;margin-top:-10px}dialog code{word-break:break-all;font-size:11px}.passText{color:var(--mint)}.failText{color:var(--red)}.warnText{color:var(--orange)}@media(min-width:1600px){.workspace{grid-template-columns:260px minmax(360px,1fr) 300px}.canvaswrap{min-height:620px}}@media(max-width:1180px){main{padding:24px 20px 0}.top{padding:0 20px}.workspace{grid-template-columns:215px minmax(300px,1fr)}.auditpanel{grid-column:1/-1;display:block}#checks{display:grid;grid-template-columns:repeat(3,1fr);gap:0 22px}.auditbottom{display:grid;grid-template-columns:1fr 2fr 1fr;gap:0 18px;align-items:center}.auditbottom .quiet{grid-column:3}.stage{display:none}.canvaswrap{min-height:540px}}@media(max-width:700px){.top{height:60px;padding:0 16px}.soft,.sep,.online{display:none}.topright{gap:0}.brand{font-size:10px}.topright button{font-size:10px}main{padding:22px 12px 0}.intro{margin-bottom:18px}.intro p{font-size:12px}.metrics{grid-template-columns:1fr 1fr}.metrics>div{padding:12px;border-bottom:1px solid var(--border)}.metrics>div:nth-child(2){border-right:0}.metrics>div:nth-child(n+3){border-bottom:0}.metrics strong{font-size:22px}.workspace{display:flex;flex-direction:column}.controls{display:grid;grid-template-columns:1fr 1fr;gap:0 15px;padding:16px}.controls .panelhead,.controls .divider,.controls .hint,.controls .primary,.controls .reset{grid-column:1/-1}.controls .panelhead{margin-bottom:12px}.controls>label{margin-top:9px}.controls>select{align-self:start}.control{margin:12px 0}.controls .divider{margin:8px 0}.controls .hint{margin:10px 0}.fieldhead{padding:0 10px}.tabs button{padding:6px 7px}.canvaswrap{min-height:430px}.canvasnote{font-size:10px;top:43px;left:25px;right:auto}.fieldfoot{padding:12px 8px;gap:4px}.fieldfoot .tiny{font-size:7px}.fieldfoot strong{font-size:9px}#checks{grid-template-columns:1fr 1fr;gap:0 16px}.auditbottom{display:block}.lower{grid-template-columns:1fr}.lower article{padding:20px}.formula{font-size:12px}.formula span{margin:0 3px}footer span:nth-child(2){display:none}dialog{padding:23px;width:94%}}
+
+/* Equal x/y display scale preserves the visual geometry of rotations. */
+.canvaswrap{aspect-ratio:1/1;flex:none;min-height:0}
+</style></head>
+<body>
+<header class="top"><a class="brand" href="#"><span class="mark">M</span>MONOLITHIC<span class="sep">/</span><span class="soft">RESEARCH LABS</span></a><div class="topright"><span class="online">OFFLINE READY</span><button id="aboutButton" class="quiet">Model & provenance ↗</button></div></header>
+<main><section class="intro"><div><div class="eyebrow">PVL–001 <span>•</span> PHASE-AWARE INTEGRATION</div><h1>Phase <span>/</span> Vorticity</h1><p>Encode the field. Check the symmetry. Reconstruct the flow.</p></div><div class="stage"><span><b>01</b> Encode</span><i>→</i><span><b>02</b> Verify</span><i>→</i><span><b>03</b> Integrate</span></div></section>
+<section class="metrics" aria-label="Current result"><div><small>PRE-INTEGRATION GATE</small><strong id="gateMetric">Checking…</strong><span id="gateSub">Registered model checks</span></div><div><small>PHASE CIRCULATION</small><strong id="circulationMetric">—</strong><span>∮ a ∇θ · dℓ · radius 2.5</span></div><div><small>ROTATION RESIDUAL</small><strong id="covMetric">—</strong><span>Three SO(2) probe rotations</span></div><div><small>QUADRATURE ERROR</small><strong id="errorMetric">—</strong><span id="errorSub">Run integration for comparison</span></div></section>
+<section class="workspace">
+<aside class="panel controls"><div class="panelhead"><span class="eyebrow">01 / FIELD DESIGN</span><span class="tiny">2D · DIMENSIONLESS</span></div>
+<label for="preset">Vortex configuration</label><select id="preset"><option value="dipole">Counter-rotating dipole</option><option value="single">Single vortex</option><option value="pair">Co-rotating pair</option><option value="quadrupole">Alternating quadrupole</option></select>
+<div class="control"><label for="winding">Winding number <output id="windingOut">1</output></label><input id="winding" type="range" min="-3" max="3" step="1" value="1"><div class="rangeends"><span>−3</span><span>0</span><span>+3</span></div></div>
+<div class="control"><label for="core">Core radius ε <output id="coreOut">0.32</output></label><input id="core" type="range" min="0.16" max="0.8" step="0.01" value="0.32"></div>
+<div class="control"><label for="phase">Global phase α <output id="phaseOut">0°</output></label><input id="phase" type="range" min="-180" max="180" step="1" value="0"></div>
+<div class="control"><label for="angle">Spatial rotation β <output id="angleOut">0°</output></label><input id="angle" type="range" min="0" max="360" step="1" value="0"></div>
+<div class="control"><label for="frame">Frame angular speed Ω <output id="frameOut">0.00</output></label><input id="frame" type="range" min="-0.5" max="0.5" step="0.01" value="0"></div>
+<label for="resolution">Integration grid</label><select id="resolution"><option value="32">32 × 32 · quick</option><option value="48" selected>48 × 48 · balanced</option><option value="80">80 × 80 · finer</option><option value="112">112 × 112 · fine</option></select>
+<div class="divider"></div><label for="fault">Adversarial control</label><select id="fault"><option value="none">None · intact model</option><option value="no-phase">Remove the wave's phase</option><option value="wrong-density">Use ρ instead of ρ² in J</option><option value="fixed-axis">Stretch the laboratory x-axis</option><option value="wrong-frame">Double the frame term</option><option value="fractional">Use half-integer winding</option><option value="missing-boundary">Omit the boundary contract</option><option value="unknown">Unregistered expression</option></select>
+<p class="hint">Faults exercise the gate. Failed or unresolved checks prevent the integration from running.</p><button id="run" class="primary">Run gated integration <span>↗</span></button><button id="reset" class="quiet reset">Reset experiment</button></aside>
+<section class="panel fieldpanel"><div class="fieldhead"><div class="tabs" aria-label="Field layer"><button data-layer="phase" class="active" aria-pressed="true">Phase</button><button data-layer="omega" aria-pressed="false">Vorticity</button><button data-layer="density" aria-pressed="false">Density</button><button data-layer="speed" aria-pressed="false">Speed</button></div><button id="play" class="quiet" disabled>▶ Tracers</button></div>
+<div class="canvaswrap"><canvas id="field" width="800" height="660" aria-label="Two-dimensional field visualization with current or velocity arrows and a coordinate probe"></canvas><div class="canvaslabel"><span class="dot"></span><span id="canvasStatus">Candidate field</span></div><div class="canvasnote" id="canvasNote">ψ = ρ exp(iθ)</div><div class="axislabel">x / L₀ →</div><div class="ylabel">y / L₀ →</div><div class="legend"><span id="legendLow">−π</span><div id="legendBar"></div><span id="legendHigh">+π</span></div></div>
+<div class="fieldfoot"><div><span class="tiny">PROBE POSITION</span><strong id="position">Move over the field</strong></div><div><span class="tiny">DENSITY |ψ|²</span><strong id="density">—</strong></div><div><span class="tiny">VORTICITY ω_rel</span><strong id="vorticity">—</strong></div><div><span class="tiny">CURRENT |J|</span><strong id="current">—</strong></div></div>
+<div class="fieldnotice" id="fieldNotice">Arrows use the analytic regularized velocity until integration. Tracers are passive paths in a frozen field, not an evolving quantum fluid.</div></section>
+<aside class="panel auditpanel"><div class="panelhead"><span class="eyebrow">02 / SYMMETRY GATE</span><span id="checkCount" class="tiny">—</span></div><div id="checks" aria-live="polite"></div><div class="auditbottom"><span class="evidencetag">EVIDENCE BOUNDARY</span><p>Numerical acceptance of this registered model. Lean runs separately; a pass does not prove arbitrary covariance or validate new physics.</p><button id="export" class="secondary">Export evidence JSON ↓</button><button id="csv" class="quiet" disabled>Export integrated field CSV ↓</button></div></aside>
+</section>
+<section class="lower"><article class="panel"><div class="eyebrow">THE INTEGRATION</div><h2>One pipeline. Distinct mathematical objects.</h2><div class="formula">ψ = ρe<sup>iθ</sup> <span>→</span> J = aρ²∇θ <span>·</span> ω = ∇ × u <span>→</span> u = K ∗ ω</div><p>The phase vortex has quantized circulation and a singular core. The Biot–Savart input is an explicitly chosen smooth vortex blob. These fields agree asymptotically outside the core; their exact difference remains visible.</p><div class="smallgrid"><div><small>CURRENT ≠ VELOCITY</small><span>∇ × (ρ²∇θ) can be nonzero even where ∇ × ∇θ = 0.</span></div><div><small>ANGULAR SPEED ≠ VORTICITY</small><span>Rigid rotation gives ω = 2Ω. The frame term is added after integration.</span></div></div></article><article class="panel"><div class="eyebrow">SOURCE CONNECTION</div><h2>Monolithic 102, with scope retained.</h2><ul class="sourceitems"><li><b>ME-016–021</b><span>Polar form, density, phase current & scoped Madelung identities</span><em>1+1D Lean overlay</em></li><li><b>ME-055</b><span>Cartesian curl, rotations & rigid-flow normalization</span><em>3D Lean overlay</em></li><li><b>ME-056</b><span>Specified rotating-cosmology model; not used as a fluid law</span><em>Partial · physical link open</em></li></ul><a class="sourcelink" target="_blank" rel="noopener" href="https://github.com/enuminous/Monolithic-102-Zoo-Lean4/actions/runs/40600670063">Inspect the recorded upstream Lean run ↗</a></article></section>
+<footer><span>MONOLITHIC / PVL–001 / v0.1.0</span><span>Deterministic · local · no external dependencies</span><span>30 OCT 2026</span></footer></main>
+<dialog id="about"><button id="closeAbout" class="quiet close">Close ×</button><div class="eyebrow">MODEL & PROVENANCE</div><h2>What this laboratory establishes</h2><p>This is a kinematic test bed for a registered family of two-dimensional vortices. It checks global U(1) symmetry, planar rotation covariance, the phase-current identity, the regularized curl, and rotating-frame normalization before a numerical Biot–Savart evaluation.</p><h3>The frozen model</h3><p>Set a = ℏ/m = 1 in dimensionless units; ψ = ρ exp(iθ), θ = Σ nᵢ arg(x−xᵢ), and ρ = Π[rᵢ/√(rᵢ²+ε²)]<sup>|nᵢ|</sup>. The regularized fluid velocity is uᵢ = a nᵢ (−yᵢ,xᵢ)/(rᵢ²+ε²), with ωᵢ = 2a nᵢ ε²/(rᵢ²+ε²)². This regularization is a declared modeling choice, not a theorem that replaces the singular phase velocity.</p><h3>The boundary contract</h3><p>The kernel is the whole-plane 2D fluid kernel K(r) = (−rᵧ,rₓ)/(2π|r|²). Vorticity is sampled in a finite square of half-width 4, rotated with the configuration. Omitted tails and midpoint quadrature create error. This is not a no-through-flow box, a 3D magnetic field, or a cosmological solution. There is no evolving Schrödinger or Euler solver.</p><h3>Formal evidence</h3><p>Upstream revision <code>6e85c9e558652f5033c55d70f33077eff7a9fd89</code> has a successful recorded analytic Lean job. Source snapshots, assumptions, exact theorem names and reproduction instructions are in the ZIP. The browser does not load axioms into Lean. Its finite tests are independent engineering checks and do not establish a general correctness theorem for this JavaScript implementation.</p><h3>How to use it</h3><p>Choose a configuration, change phase or orientation, then run the gate and integration. Try an adversarial control to see specific failures. Hover or touch the field to inspect values; choose a display layer; animate passive tracers; export the current audit and numerical result. Exports are generated entirely on your device.</p></dialog>
+<script>/* PVL-001: deterministic, dimensionless 2D kinematic model. No dependencies. */
+(function (root, factory) {
+  const api = factory();
+  if (typeof module === 'object' && module.exports) module.exports = api;
+  else root.PVL = api;
+})(typeof globalThis !== 'undefined' ? globalThis : this, function () {
+  'use strict';
+  const TAU = 2 * Math.PI;
+  const DEFAULT = Object.freeze({preset:'dipole', winding:1, core:0.32, phase:0,
+    angle:0, frame:0, scale:1, extent:4, resolution:48, fault:'none',
+    boundary:'whole-plane-decay', representation:'polar-vortex'});
+  const PRESETS = {
+    single: [[0,0,1]], dipole:[[-0.9,0,1],[0.9,0,-1]],
+    pair:[[-0.9,0,1],[0.9,0,1]],
+    quadrupole:[[-1,-1,1],[1,-1,-1],[1,1,1],[-1,1,-1]]
+  };
+  const FAULTS=['none','no-phase','wrong-density','fixed-axis','wrong-frame','fractional','missing-boundary','unknown'];
+  const rotate=(p,a)=>[Math.cos(a)*p[0]-Math.sin(a)*p[1], Math.sin(a)*p[0]+Math.cos(a)*p[1]];
+  const norm=p=>Math.hypot(...p);
+  const difference=(a,b)=>norm(a.map((v,i)=>v-b[i])) / Math.max(1,norm(a),norm(b));
+  const config=x=>Object.assign({},DEFAULT,x);
+  function vortices(c) {
+    return PRESETS[c.preset].map(([x,y,n])=>({p:rotate([x,y],c.angle), n:n*c.winding*(c.fault==='fractional'?0.5:1)}));
+  }
+  function wave(c,p) {
+    let rho=1, theta=c.phase, gx=0, gy=0, node=false;
+    for (const v of vortices(c)) {
+      const dx=p[0]-v.p[0],dy=p[1]-v.p[1],r2=dx*dx+dy*dy;
+      if (v.n===0) continue;
+      if (r2<1e-24) {rho=0; node=true; continue;}
+      const local=rotate([dx,dy],-c.angle);
+      rho *= Math.pow(Math.sqrt(r2/(r2+c.core*c.core)),Math.abs(v.n));
+      theta += v.n*Math.atan2(local[1],local[0]);
+      gx -= v.n*dy/r2; gy += v.n*dx/r2;
+    }
+    const psi=c.fault==='no-phase'?[rho,0]:[rho*Math.cos(theta),rho*Math.sin(theta)];
+    return {rho,theta,psi,gradient:node?null:[gx,gy],node};
+  }
+  function current(c,p) {
+    const w=wave(c,p);
+    if(w.node) return [0,0]; // continuous extension for nonzero integer winding
+    const density=c.fault==='wrong-density'?w.rho:w.rho*w.rho;
+    let j=w.gradient.map(g=>c.scale*density*g);
+    if(c.fault==='fixed-axis') j=[j[0]*1.35,j[1]];
+    return j;
+  }
+  function waveCurrent(c,p,h=1e-5) {
+    const w=wave(c,p).psi;
+    return [0,1].map(i=>{
+      const a=p.slice(), b=p.slice(); a[i]+=h; b[i]-=h;
+      const wa=wave(c,a).psi,wb=wave(c,b).psi;
+      return c.scale*(w[0]*(wa[1]-wb[1])-w[1]*(wa[0]-wb[0]))/(2*h);
+    });
+  }
+  function velocity(c,p) {
+    let u=[0,0];
+    for(const v of vortices(c)) {
+      const x=p[0]-v.p[0],y=p[1]-v.p[1],d=x*x+y*y+c.core*c.core;
+      u[0]-=c.scale*v.n*y/d; u[1]+=c.scale*v.n*x/d;
+    }
+    if(c.fault==='fixed-axis') u[0]*=1.35;
+    return u;
+  }
+  function omega(c,p) {
+    return vortices(c).reduce((s,v)=>{
+      const d=(p[0]-v.p[0])**2+(p[1]-v.p[1])**2+c.core*c.core;
+      return s+2*c.scale*v.n*c.core*c.core/(d*d);
+    },0);
+  }
+  function relative(c,p,u=velocity(c,p)) {
+    const f=c.frame*(c.fault==='wrong-frame'?2:1);
+    return [u[0]+f*p[1],u[1]-f*p[0]];
+  }
+  function curl(fn,p,h=1e-5) {
+    return (fn([p[0]+h,p[1]])[1]-fn([p[0]-h,p[1]])[1]
+      -fn([p[0],p[1]+h])[0]+fn([p[0],p[1]-h])[0])/(2*h);
+  }
+  function kernel(c,r) {
+    const r2=r[0]*r[0]+r[1]*r[1];
+    if(r2<1e-24) return [0,0]; // symmetric self-cell midpoint convention
+    return [-(c.fault==='fixed-axis'?1.35:1)*r[1]/(TAU*r2),r[0]/(TAU*r2)];
+  }
+  function scan(input) {
+    const c=config(input),checks=[];
+    const add=(id,label,status,value,limit,detail)=>checks.push({id,label,status,value,limit,detail});
+    const finite=['winding','core','phase','angle','frame','scale','extent','resolution'].every(k=>Number.isFinite(c[k]));
+    const bounds=finite && c.core>=0.08&&c.core<=1&&c.scale>0&&c.scale<=10&&c.extent>=3&&c.extent<=12&&
+      Number.isInteger(c.resolution)&&c.resolution>=16&&c.resolution<=160&&Math.abs(c.winding)<=4&&Math.abs(c.frame)<=2;
+    add('domain','Domain and conventions',bounds?'PASS':'FAIL',null,null,'Fixed dimensionless convention: length L₀, time T₀, scale ℏ/m in L₀²/T₀. Positive core and scale; finite, bounded inputs. This does not infer units from arbitrary expressions.');
+    const known=Boolean(PRESETS[c.preset])&&FAULTS.includes(c.fault)&&c.representation==='polar-vortex'&&c.fault!=='unknown';
+    add('representation','Known representation',known?'PASS':'UNRESOLVED',null,null,'Only this registered polar-vortex family is evaluated. Unknown symbolic forms are not silently accepted.');
+    if(!bounds||!known) return finish();
+    const integer=Number.isInteger(c.winding)&&vortices(c).every(v=>Number.isInteger(v.n));
+    add('winding','Single-valued wave',integer?'PASS':'FAIL',null,null,'Integer winding; phase undefined at zero amplitude. Fractional winding is rejected.');
+    const boundary=c.boundary==='whole-plane-decay'&&c.fault!=='missing-boundary';
+    add('boundary','Reconstruction domain',boundary?'PASS':'UNRESOLVED',null,null,'Whole-plane decaying vortex field; finite-square quadrature approximation. Frame velocity added separately.');
+    const probes=[[0.37,0.61],[-1.43,0.47],[1.24,-0.83],[0.21,-1.73]];
+    let phaseErr=0,currentErr=0,identityErr=0,rotationErr=0,kernelErr=0,curlErr=0,frameErr=0;
+    for(const p of probes) {
+      const w=wave(c,p),j=current(c,p),shifted=config({...c,phase:c.phase+0.731});
+      phaseErr=Math.max(phaseErr,difference(wave(shifted,p).psi,rotate(w.psi,0.731)));
+      currentErr=Math.max(currentErr,difference(current(shifted,p),j));
+      identityErr=Math.max(identityErr,difference(j,waveCurrent(c,p)));
+      curlErr=Math.max(curlErr,Math.abs(curl(q=>velocity(c,q),p)-omega(c,p))/Math.max(1,Math.abs(omega(c,p))));
+      const frameC=config({...c,frame:0.37});
+      frameErr=Math.max(frameErr,Math.abs(curl(q=>relative(frameC,q),p)-(omega(c,p)-0.74)));
+      for(const a of [0.29,1.13,2.4]) {
+        const cc=config({...c,angle:c.angle+a}),q=rotate(p,a);
+        rotationErr=Math.max(rotationErr,difference(current(cc,q),rotate(j,a)),difference(velocity(cc,q),rotate(velocity(c,p),a)),difference(wave(cc,q).psi,w.psi));
+        kernelErr=Math.max(kernelErr,difference(kernel(c,q),rotate(kernel(c,p),a)));
+      }
+    }
+    const numeric=(id,label,v,t,detail)=>add(id,label,v<=t?'PASS':'FAIL',v,t,detail);
+    numeric('phase','Global U(1) phase',phaseErr,1e-10,'ψ → eⁱᵅψ. An invariant density does not need an explicit phase factor.');
+    numeric('current','Current invariance',currentErr,1e-10,'J is unchanged by a constant phase shift; no local gauge field is modeled.');
+    numeric('identity','Madelung current identity',identityErr,2e-6,'J = a Im(conj ψ ∇ψ) = a ρ²∇θ, checked using independent finite differences away from cores.');
+    numeric('rotation','Spatial SO(2) covariance',rotationErr,1e-10,'Rotate source geometry, phase chart and observation point together; vector outputs rotate. Finite tests, not a universal proof.');
+    numeric('kernel','Biot–Savart kernel covariance',kernelErr,1e-10,'The same kernel used for integration is checked under three proper planar rotations.');
+    numeric('curl','Velocity–vorticity agreement',curlErr,2e-6,'Finite-difference curl of the regularized velocity agrees with the chosen smooth blob vorticity.');
+    numeric('frame','Rotating-frame normalization',frameErr,2e-6,'u_rel = u − Ω×r; curl(u_rel) = ω − 2Ω. A nonzero frame probe prevents a zero-Ω false pass.');
+    return finish();
+    function finish(){const decision=checks.some(x=>x.status==='FAIL')?'FAIL':checks.some(x=>x.status==='UNRESOLVED')?'UNRESOLVED':'PASS';return {schema:'PVL-scan-1',decision,eligible:decision==='PASS',checks,config:c,scope:'Finite numerical checks of registered 2D model; not Lean execution or physical validation.'};}
+  }
+  function sources(c,n=c.resolution) {
+    const a=2*c.extent/n,out=[];
+    for(let iy=0;iy<n;iy++) for(let ix=0;ix<n;ix++) {
+      const p=rotate([-c.extent+(ix+0.5)*a,-c.extent+(iy+0.5)*a],c.angle);
+      out.push({p,weight:omega(c,p)*a*a});
+    }
+    return out;
+  }
+  function sum(c,p,src) {
+    let x=0,y=0;
+    for(const s of src){const k=kernel(c,[p[0]-s.p[0],p[1]-s.p[1]]);x+=k[0]*s.weight;y+=k[1]*s.weight;}
+    return [x,y];
+  }
+  function integrate(input,points) {
+    const c=config(input),audit=scan(c);
+    if(!audit.eligible){const e=new Error('Pre-integration gate '+audit.decision);e.audit=audit;throw e;}
+    if(!Array.isArray(points)||points.length===0||points.length>16384||!points.every(p=>Array.isArray(p)&&p.length===2&&p.every(x=>Number.isFinite(x)&&Math.abs(x)<=1e6)))
+      throw new TypeError('Query points must contain 1–16384 finite coordinate pairs with |coordinate| ≤ 1e6.');
+    const src=sources(c),velocities=points.map(p=>sum(c,p,src));
+    return {schema:'PVL-integration-1',config:c,audit,points,velocities,
+      relative:points.map((p,i)=>relative(c,p,velocities[i])),
+      circulationCaptured:src.reduce((s,v)=>s+v.weight,0),
+      circulationExpected:TAU*c.scale*vortices(c).reduce((s,v)=>s+v.n,0),
+      sourceCount:src.length,method:'Whole-plane kernel; midpoint quadrature on a finite rotated square; zero symmetric self-cell contribution.'};
+  }
+  function circleCirculation(c,r=2.5,n=1024) {
+    let out=0;
+    for(let i=0;i<n;i++){const t=TAU*(i+0.5)/n,p=[r*Math.cos(t),r*Math.sin(t)],w=wave(c,p);if(w.gradient)out+=c.scale*(w.gradient[0]*-r*Math.sin(t)+w.gradient[1]*r*Math.cos(t))*TAU/n;}
+    return out;
+  }
+  return {TAU,DEFAULT,PRESETS,FAULTS,config,rotate,norm,difference,vortices,wave,current,waveCurrent,velocity,omega,relative,curl,kernel,scan,sources,sum,integrate,circleCirculation};
+});
+</script><script>(function(){
+  'use strict';
+  const P=window.PVL, $=id=>document.getElementById(id), canvas=$('field'),ctx=canvas.getContext('2d');
+  const bg=document.createElement('canvas'),bc=bg.getContext('2d');
+  const ids=['preset','winding','core','phase','angle','frame','resolution','fault'];
+  let c=P.config(),audit=P.scan(c),result=null,layer='phase',running=false,particles=[],lastTime=0,hover=null,dirty=true;
+  const gridN=31,probes=[[0.37,1.13],[-1.51,0.73],[1.71,-1.19],[0.21,-2.31]];
+  function read(){return P.config({preset:$('preset').value,winding:+$('winding').value,core:+$('core').value,phase:+$('phase').value*Math.PI/180,angle:+$('angle').value*Math.PI/180,frame:+$('frame').value,resolution:+$('resolution').value,fault:$('fault').value});}
+  function fmt(x){if(!Number.isFinite(x))return '—';if(x===0)return '0';return Math.abs(x)<0.001?x.toExponential(2):x.toFixed(3);}
+  function settings(){
+    c=read();audit=P.scan(c);result=null;running=false;particles=[];
+    for(const id of ['winding','core','phase','angle','frame'])$(id+'Out').textContent=id==='winding'?c.winding:id==='phase'||id==='angle'?$(id).value+'°':c[id].toFixed(2);
+    $('play').disabled=true;$('play').textContent='▶ Tracers';$('csv').disabled=true;
+    $('errorMetric').textContent='—';$('errorSub').textContent='Run integration for comparison';
+    $('canvasStatus').textContent=audit.eligible?'Candidate · not yet integrated':'Integration blocked · '+audit.decision;
+    $('fieldNotice').textContent=audit.eligible?'Arrows show the analytic regularized velocity. Run integration to replace them with the reconstructed field.':'The candidate is shown for inspection. The gate has blocked Biot–Savart integration; no previous result is being reused.';
+    renderAudit();dirty=true;
+  }
+  function renderAudit(){
+    $('gateMetric').textContent=audit.decision==='PASS'?'ACCEPTED':audit.decision==='FAIL'?'REJECTED':'UNRESOLVED';
+    $('gateMetric').className=audit.decision==='PASS'?'passText':audit.decision==='FAIL'?'failText':'warnText';
+    $('gateSub').textContent=audit.eligible?'Finite model checks passed':'Integration is blocked';
+    const passed=audit.checks.filter(x=>x.status==='PASS').length;
+    $('checkCount').textContent=passed+' / '+audit.checks.length+' PASS';
+    $('checks').replaceChildren();
+    for(const q of audit.checks){
+      const row=document.createElement('details');row.className='check';
+      const s=document.createElement('summary'),t=document.createElement('span'),status=document.createElement('span');t.textContent=q.label;status.className='badge '+q.status.toLowerCase();status.textContent=q.status;s.append(t,status);row.append(s);
+      const p=document.createElement('p');p.textContent=q.detail;row.append(p);
+      if(q.value!==null){const code=document.createElement('code');code.textContent=q.value.toExponential(2)+' / limit '+q.limit.toExponential(0);row.append(code);}
+      if(q.status!=='PASS')row.open=true;$('checks').append(row);
+    }
+    const rot=audit.checks.find(x=>x.id==='rotation');$('covMetric').textContent=rot?fmt(rot.value):'—';
+    $('circulationMetric').textContent=fmt(P.circleCirculation(c)/P.TAU)+' × 2π';
+    $('run').disabled=!audit.eligible;
+  }
+  function gridPoints(){const points=[];for(let j=0;j<gridN;j++)for(let i=0;i<gridN;i++)points.push([-c.extent+2*c.extent*i/(gridN-1),-c.extent+2*c.extent*j/(gridN-1)]);return points;}
+  async function run(){
+    $('run').disabled=true;$('run').textContent='Integrating…';
+    await new Promise(resolve=>setTimeout(resolve,20));
+    try{
+      const start=performance.now(),points=gridPoints();
+      result=P.integrate(c,points.concat(probes));
+      result.elapsedMs=performance.now()-start;result.gridN=gridN;
+      let err=0,den=0;
+      probes.forEach((p,i)=>{const u=result.velocities[gridN*gridN+i],v=P.velocity(c,p);err+=(u[0]-v[0])**2+(u[1]-v[1])**2;den+=v[0]**2+v[1]**2;});
+      result.probeRelativeError=den?Math.sqrt(err/den):0;
+      $('errorMetric').textContent=(100*result.probeRelativeError).toFixed(2)+'%';
+      $('errorMetric').className=result.probeRelativeError>0.12?'failText':result.probeRelativeError>0.05?'warnText':'passText';
+      $('errorSub').textContent=result.probeRelativeError>0.05?'Large probe error · refine the source grid':'4 probes · vs whole-plane analytic blob';
+      $('canvasStatus').textContent='Integrated · '+result.sourceCount.toLocaleString()+' source cells';
+      $('fieldNotice').textContent='Arrows and tracers use the reconstructed '+(c.frame?'relative':'laboratory')+' velocity. '+result.elapsedMs.toFixed(0)+' ms · captured signed circulation '+fmt(result.circulationCaptured)+' / expected '+fmt(result.circulationExpected)+'. Finite-domain and grid errors remain.';
+      $('csv').disabled=false;$('play').disabled=false;running=true;$('play').textContent='Ⅱ Pause';seedParticles();
+    }catch(e){result=null;running=false;audit=e.audit||P.scan(c);$('canvasStatus').textContent='Integration blocked';$('fieldNotice').textContent=e.message;renderAudit();}
+    $('run').innerHTML='Run gated integration <span>↗</span>';$('run').disabled=!audit.eligible;dirty=true;
+  }
+  function interpolated(p){
+    if(!result)return P.relative(c,p);
+    const fx=(p[0]+c.extent)/(2*c.extent)*(gridN-1),fy=(p[1]+c.extent)/(2*c.extent)*(gridN-1);
+    if(fx<0||fy<0||fx>=gridN-1||fy>=gridN-1)return [0,0];
+    const x=Math.floor(fx),y=Math.floor(fy),dx=fx-x,dy=fy-y,u=[0,0];
+    for(let j=0;j<2;j++)for(let i=0;i<2;i++){const w=(i?dx:1-dx)*(j?dy:1-dy),v=result.relative[(y+j)*gridN+x+i];u[0]+=w*v[0];u[1]+=w*v[1];}
+    return u;
+  }
+  let seed=43821;
+  function random(){seed=(1664525*seed+1013904223)>>>0;return seed/4294967296;}
+  function fresh(){return {p:[(random()*2-1)*c.extent,(random()*2-1)*c.extent],trail:[],age:random()*10};}
+  function seedParticles(){seed=43821;particles=Array.from({length:330},fresh);}
+  function xy(p){return [(p[0]/(2*c.extent)+0.5)*canvas.width,(0.5-p[1]/(2*c.extent))*canvas.height];}
+  function color(h,s,v){h=((h%1)+1)%1;const i=Math.floor(h*6),f=h*6-i,p=v*(1-s),q=v*(1-f*s),t=v*(1-(1-f)*s);return [[v,t,p],[q,v,p],[p,v,t],[p,q,v],[t,p,v],[v,p,q]][i%6].map(x=>Math.round(255*x));}
+  function background(){
+    bg.width=240;bg.height=Math.round(240*canvas.height/canvas.width);const img=bc.createImageData(bg.width,bg.height);
+    for(let j=0;j<bg.height;j++)for(let i=0;i<bg.width;i++){
+      const p=[(i/bg.width*2-1)*c.extent,(1-j/bg.height*2)*c.extent],w=P.wave(c,p);let rgb;
+      if(layer==='phase')rgb=color(Math.atan2(w.psi[1],w.psi[0])/P.TAU+0.5,.54,.08+.27*w.rho);
+      else if(layer==='density'){const d=w.rho*w.rho;rgb=[10+20*d,17+75*d,24+77*d];}
+      else if(layer==='omega'){const v=P.omega(c,p)-2*c.frame,t=Math.min(1,Math.log1p(Math.abs(v))/3.2);rgb=v>=0?[13+196*t,22+105*t,29+33*t]:[13+24*t,22+100*t,29+186*t];}
+      else {const speed=P.norm(interpolated(p)),v=Math.min(1,speed/3.8);rgb=[9+40*v,18+156*v,29+119*v];}
+      const k=(j*bg.width+i)*4;img.data[k]=rgb[0];img.data[k+1]=rgb[1];img.data[k+2]=rgb[2];img.data[k+3]=255;
+    }
+    bc.putImageData(img,0,0);dirty=false;
+  }
+  function draw(t){
+    const rect=canvas.getBoundingClientRect(),ratio=Math.min(2,window.devicePixelRatio||1),cw=Math.round(rect.width*ratio),ch=Math.round(rect.height*ratio);
+    if(cw!==canvas.width||ch!==canvas.height){canvas.width=cw;canvas.height=ch;dirty=true;}
+    if(dirty)background();ctx.drawImage(bg,0,0,canvas.width,canvas.height);
+    ctx.lineWidth=ratio;ctx.strokeStyle='#9bbcc00c';ctx.beginPath();
+    for(let i=1;i<8;i++){ctx.moveTo(canvas.width*i/8,0);ctx.lineTo(canvas.width*i/8,canvas.height);ctx.moveTo(0,canvas.height*i/8);ctx.lineTo(canvas.width,canvas.height*i/8);}ctx.stroke();
+    // Velocity arrows are distinguished from the phase-current probe below.
+    for(let j=1;j<14;j++)for(let i=1;i<14;i++){
+      const p=[(i/14*2-1)*c.extent,(j/14*2-1)*c.extent],u=interpolated(p),m=P.norm(u);if(m<1e-8)continue;
+      const a=xy(p),len=Math.min(16,4+7*Math.log1p(m))*ratio,dx=u[0]/m*len,dy=-u[1]/m*len;
+      ctx.strokeStyle='#c8eee059';ctx.lineWidth=.8*ratio;ctx.beginPath();ctx.moveTo(a[0]-dx*.4,a[1]-dy*.4);ctx.lineTo(a[0]+dx*.6,a[1]+dy*.6);ctx.lineTo(a[0]+dx*.25-dy*.18,a[1]+dy*.25+dx*.18);ctx.moveTo(a[0]+dx*.6,a[1]+dy*.6);ctx.lineTo(a[0]+dx*.25+dy*.18,a[1]+dy*.25-dx*.18);ctx.stroke();
+    }
+    const dt=Math.min(.033,(t-lastTime)/1000||0);lastTime=t;
+    if(result)for(let i=0;i<particles.length;i++){
+      let q=particles[i];
+      if(running){
+        const v=interpolated(q.p),mid=[q.p[0]+.5*dt*v[0],q.p[1]+.5*dt*v[1]],v2=interpolated(mid);q.p=[q.p[0]+dt*v2[0],q.p[1]+dt*v2[1]];q.age+=dt;
+        if(Math.abs(q.p[0])>=c.extent-.01||Math.abs(q.p[1])>=c.extent-.01||q.age>16){q=fresh();q.age=0;particles[i]=q;}
+        q.trail.push(q.p.slice());if(q.trail.length>14)q.trail.shift();
+      }
+      if(q.trail.length){ctx.beginPath();q.trail.forEach((p,k)=>{const z=xy(p);k?ctx.lineTo(...z):ctx.moveTo(...z);});ctx.strokeStyle='#bdf6de82';ctx.lineWidth=.8*ratio;ctx.stroke();const z=xy(q.p);ctx.fillStyle='#ddfff3b0';ctx.fillRect(z[0],z[1],1.5*ratio,1.5*ratio);}
+    }
+    for(const v of P.vortices(c)){
+      if(v.n===0)continue;const p=xy(v.p);ctx.strokeStyle=v.n>0?'#8febd0aa':'#f3b37daa';ctx.lineWidth=ratio;ctx.setLineDash([3*ratio,3*ratio]);ctx.beginPath();ctx.ellipse(p[0],p[1],c.core/(2*c.extent)*canvas.width,c.core/(2*c.extent)*canvas.height,0,0,P.TAU);ctx.stroke();ctx.setLineDash([]);ctx.fillStyle='#08151ee8';ctx.beginPath();ctx.arc(p[0],p[1],10*ratio,0,P.TAU);ctx.fill();ctx.fillStyle=v.n>0?'#a7f5df':'#ffc28d';ctx.textAlign='center';ctx.textBaseline='middle';ctx.font=10*ratio+'px monospace';ctx.fillText((v.n>0?'+':'')+v.n,p[0],p[1]);
+    }
+    if(hover){const p=xy(hover);ctx.strokeStyle='#d4e6e270';ctx.beginPath();ctx.moveTo(p[0]-9*ratio,p[1]);ctx.lineTo(p[0]+9*ratio,p[1]);ctx.moveTo(p[0],p[1]-9*ratio);ctx.lineTo(p[0],p[1]+9*ratio);ctx.stroke();}
+    requestAnimationFrame(draw);
+  }
+  function download(name,text,type){const a=document.createElement('a'),url=URL.createObjectURL(new Blob([text],{type}));a.href=url;a.download=name;a.click();setTimeout(()=>URL.revokeObjectURL(url),1000);}
+  ids.forEach(id=>$(id).addEventListener('input',settings));$('run').addEventListener('click',run);
+  $('reset').addEventListener('click',()=>{for(const id of ids)$(id).value=id==='phase'||id==='angle'?0:P.DEFAULT[id];settings();run();});
+  $('play').addEventListener('click',()=>{running=!running;$('play').textContent=running?'Ⅱ Pause':'▶ Tracers';});
+  document.querySelectorAll('[data-layer]').forEach(b=>b.addEventListener('click',()=>{
+    layer=b.dataset.layer;document.querySelectorAll('[data-layer]').forEach(q=>{q.classList.toggle('active',q===b);q.setAttribute('aria-pressed',q===b?'true':'false');});
+    const labels={phase:['−π','+π','ψ = ρ exp(iθ)'],omega:['negative','positive','ω_rel = ω − 2Ω'],density:['0','1','n = |ψ|² = ρ²'],speed:['0','3.8+','|u_rel| · L₀/T₀']};
+    $('legendLow').textContent=labels[layer][0];$('legendHigh').textContent=labels[layer][1];$('canvasNote').textContent=labels[layer][2];
+    $('legendBar').style.background=layer==='phase'?'linear-gradient(90deg,#68e0e6,#a286ff,#ff879d,#ffc47d,#8ce2b4,#68e0e6)':layer==='omega'?'linear-gradient(90deg,#258bc3,#111923,#f3ae72)':'linear-gradient(90deg,#0a151d,#55bda5)';dirty=true;
+  }));
+  canvas.addEventListener('pointermove',e=>{const r=canvas.getBoundingClientRect();hover=[((e.clientX-r.left)/r.width*2-1)*c.extent,(1-(e.clientY-r.top)/r.height*2)*c.extent];const w=P.wave(c,hover);$('position').textContent=hover.map(x=>x.toFixed(2)).join(', ');$('density').textContent=fmt(w.rho*w.rho);$('vorticity').textContent=fmt(P.omega(c,hover)-2*c.frame);$('current').textContent=fmt(P.norm(P.current(c,hover)));});canvas.addEventListener('pointerleave',()=>hover=null);
+  $('export').addEventListener('click',()=>download('PVL-001-evidence.json',JSON.stringify({version:'0.1.0',createdAt:new Date().toISOString(),audit,integration:result,upstream:{commit:'6e85c9e558652f5033c55d70f33077eff7a9fd89',ci:'https://github.com/enuminous/Monolithic-102-Zoo-Lean4/actions/runs/40600670063',status:'Recorded upstream CI success; no local Lean rebuild'},limits:['No general symbolic parser','Finite symmetry probes only','2D kinematic fluid reconstruction','No cosmological or quantum-dynamics validation']},null,2),'application/json'));
+  $('csv').addEventListener('click',()=>{if(!result)return;const rows=['x,y,u_x,u_y,u_rel_x,u_rel_y,omega_lab,omega_rel,rho_squared'];result.points.forEach((p,i)=>rows.push([...p,...result.velocities[i],...result.relative[i],P.omega(c,p),P.omega(c,p)-2*c.frame,P.wave(c,p).rho**2].join(',')));download('PVL-001-field.csv',rows.join('\n')+'\n','text/csv');});
+  $('aboutButton').addEventListener('click',()=>$('about').showModal());$('closeAbout').addEventListener('click',()=>$('about').close());
+  window.PVLApp={getState:()=>({config:c,audit,result,layer,running}),run,settings};
+  settings();requestAnimationFrame(draw);setTimeout(run,60);
+})();
+</script></body></html>

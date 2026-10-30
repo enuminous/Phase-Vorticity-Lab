@@ -1,0 +1,16 @@
+Source: https://github.com/enuminous/Monolithic-102-Zoo-Lean4/actions/runs/40600670063/job/122527682065
+Inspection date: 2026-10-30
+This is a selected excerpt from a recorded upstream job, not a local execution.
+
+2026-10-27T23:15:12.2891796Z ℹ [2494/2820] Replayed Madelung
+2026-10-27T23:15:12.4067860Z Build completed successfully (2820 jobs).
+2026-10-27T23:15:29.5606897Z ##[group]Run python3 scripts/check_coverage.py
+2026-10-27T23:15:29.5607130Z [36;1mpython3 scripts/check_coverage.py[0m
+2026-10-27T23:15:29.6652021Z ##[group]Run lake env lean -DwarningAsError=true Audit.lean
+2026-10-27T23:15:29.6652372Z [36;1mlake env lean -DwarningAsError=true Audit.lean[0m
+2026-10-27T23:16:01.3234269Z Axiom audit passed: 803 safe declarations, 580 theorem declarations (including generated lemmas).
+2026-10-27T23:16:01.4806427Z ##[group]Run python3 scripts/test_axiom_audit.py
+2026-10-27T23:16:12.4754640Z Audit correctly rejected public axiom.
+2026-10-27T23:16:12.4754996Z Audit correctly rejected private axiom.
+2026-10-27T23:16:12.4756226Z Audit correctly rejected placeholder.
+2026-10-27T23:16:12.4756509Z Audit correctly rejected native proof.

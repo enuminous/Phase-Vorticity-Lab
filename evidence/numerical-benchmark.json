@@ -1,0 +1,155 @@
+{
+  "schema": "PVL-benchmark-1",
+  "scope": "Four fixed probes, four preset fields; finite domain half-width 4, core 0.32, scale 1.",
+  "criterion": "Every 112×112 case has relative L2 error < 0.12 at the four frozen probes. Monotonic refinement is NOT required or claimed.",
+  "threshold": 0.12,
+  "passed": true,
+  "probes": [
+    [
+      0.37,
+      1.13
+    ],
+    [
+      -1.51,
+      0.73
+    ],
+    [
+      1.71,
+      -1.19
+    ],
+    [
+      0.21,
+      -2.31
+    ]
+  ],
+  "results": [
+    {
+      "preset": "single",
+      "resolution": 32,
+      "relativeL2Error": 0.10703112452616183,
+      "capturedCirculation": 6.221749023419378,
+      "expectedCirculation": 6.283185307179586,
+      "gate": "PASS"
+    },
+    {
+      "preset": "single",
+      "resolution": 48,
+      "relativeL2Error": 0.0030975408033626184,
+      "capturedCirculation": 6.249827739054491,
+      "expectedCirculation": 6.283185307179586,
+      "gate": "PASS"
+    },
+    {
+      "preset": "single",
+      "resolution": 80,
+      "relativeL2Error": 0.003268746883173839,
+      "capturedCirculation": 6.250461997726783,
+      "expectedCirculation": 6.283185307179586,
+      "gate": "PASS"
+    },
+    {
+      "preset": "single",
+      "resolution": 112,
+      "relativeL2Error": 0.0009759135521990113,
+      "capturedCirculation": 6.250459467956447,
+      "expectedCirculation": 6.283185307179586,
+      "gate": "PASS"
+    },
+    {
+      "preset": "dipole",
+      "resolution": 32,
+      "relativeL2Error": 0.06320331508090164,
+      "capturedCirculation": 9.742572959318962e-17,
+      "expectedCirculation": 0,
+      "gate": "PASS"
+    },
+    {
+      "preset": "dipole",
+      "resolution": 48,
+      "relativeL2Error": 0.0036111957998257154,
+      "capturedCirculation": -5.827468092496971e-16,
+      "expectedCirculation": 0,
+      "gate": "PASS"
+    },
+    {
+      "preset": "dipole",
+      "resolution": 80,
+      "relativeL2Error": 0.003218815784259719,
+      "capturedCirculation": 2.060214097167638e-15,
+      "expectedCirculation": 0,
+      "gate": "PASS"
+    },
+    {
+      "preset": "dipole",
+      "resolution": 112,
+      "relativeL2Error": 0.0018978910611518447,
+      "capturedCirculation": 4.0800624157173986e-16,
+      "expectedCirculation": 0,
+      "gate": "PASS"
+    },
+    {
+      "preset": "pair",
+      "resolution": 32,
+      "relativeL2Error": 0.06626000724596508,
+      "capturedCirculation": 12.487168538244925,
+      "expectedCirculation": 12.566370614359172,
+      "gate": "PASS"
+    },
+    {
+      "preset": "pair",
+      "resolution": 48,
+      "relativeL2Error": 0.0027941032248923942,
+      "capturedCirculation": 12.494735413414071,
+      "expectedCirculation": 12.566370614359172,
+      "gate": "PASS"
+    },
+    {
+      "preset": "pair",
+      "resolution": 80,
+      "relativeL2Error": 0.002491628280407716,
+      "capturedCirculation": 12.494840752157607,
+      "expectedCirculation": 12.566370614359172,
+      "gate": "PASS"
+    },
+    {
+      "preset": "pair",
+      "resolution": 112,
+      "relativeL2Error": 0.00127247119782841,
+      "capturedCirculation": 12.494833945529038,
+      "expectedCirculation": 12.566370614359172,
+      "gate": "PASS"
+    },
+    {
+      "preset": "quadrupole",
+      "resolution": 32,
+      "relativeL2Error": 0.44797283412115735,
+      "capturedCirculation": -2.294510610158229e-16,
+      "expectedCirculation": 0,
+      "gate": "PASS"
+    },
+    {
+      "preset": "quadrupole",
+      "resolution": 48,
+      "relativeL2Error": 0.015817990651807317,
+      "capturedCirculation": -1.339379318175335e-16,
+      "expectedCirculation": 0,
+      "gate": "PASS"
+    },
+    {
+      "preset": "quadrupole",
+      "resolution": 80,
+      "relativeL2Error": 0.014238981382379315,
+      "capturedCirculation": -1.173547207761888e-16,
+      "expectedCirculation": 0,
+      "gate": "PASS"
+    },
+    {
+      "preset": "quadrupole",
+      "resolution": 112,
+      "relativeL2Error": 0.006739373445632556,
+      "capturedCirculation": 1.7991742129333868e-16,
+      "expectedCirculation": 0,
+      "gate": "PASS"
+    }
+  ]
+}

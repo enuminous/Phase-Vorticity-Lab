@@ -1,0 +1,118 @@
+TAP version 13
+# Subtest: All registered presets pass at multiple windings and orientations
+ok 1 - All registered presets pass at multiple windings and orientations
+  ---
+  duration_ms: 15.395041
+  type: 'test'
+  ...
+# Subtest: Fault rejected before integration: no-phase
+ok 2 - Fault rejected before integration: no-phase
+  ---
+  duration_ms: 0.787771
+  type: 'test'
+  ...
+# Subtest: Fault rejected before integration: wrong-density
+ok 3 - Fault rejected before integration: wrong-density
+  ---
+  duration_ms: 0.677865
+  type: 'test'
+  ...
+# Subtest: Fault rejected before integration: fixed-axis
+ok 4 - Fault rejected before integration: fixed-axis
+  ---
+  duration_ms: 0.508509
+  type: 'test'
+  ...
+# Subtest: Fault rejected before integration: wrong-frame
+ok 5 - Fault rejected before integration: wrong-frame
+  ---
+  duration_ms: 0.960773
+  type: 'test'
+  ...
+# Subtest: Fault rejected before integration: fractional
+ok 6 - Fault rejected before integration: fractional
+  ---
+  duration_ms: 0.328467
+  type: 'test'
+  ...
+# Subtest: Unknown obligation blocks integration: missing-boundary
+ok 7 - Unknown obligation blocks integration: missing-boundary
+  ---
+  duration_ms: 0.469079
+  type: 'test'
+  ...
+# Subtest: Unknown obligation blocks integration: unknown
+ok 8 - Unknown obligation blocks integration: unknown
+  ---
+  duration_ms: 0.190308
+  type: 'test'
+  ...
+# Subtest: Density is U(1) invariant although no explicit phase survives
+ok 9 - Density is U(1) invariant although no explicit phase survives
+  ---
+  duration_ms: 0.247024
+  type: 'test'
+  ...
+# Subtest: Core nodes do not divide by amplitude or invent a phase gradient
+ok 10 - Core nodes do not divide by amplitude or invent a phase gradient
+  ---
+  duration_ms: 0.856496
+  type: 'test'
+  ...
+# Subtest: Circulation is 2π a n outside an isolated phase core
+ok 11 - Circulation is 2π a n outside an isolated phase core
+  ---
+  duration_ms: 2.912615
+  type: 'test'
+  ...
+# Subtest: Smooth phase is locally curl-free away from cores
+ok 12 - Smooth phase is locally curl-free away from cores
+  ---
+  duration_ms: 0.253764
+  type: 'test'
+  ...
+# Subtest: Current curl is distinct from velocity curl with varying density
+ok 13 - Current curl is distinct from velocity curl with varying density
+  ---
+  duration_ms: 0.168665
+  type: 'test'
+  ...
+# Subtest: Regularized circulation approaches quantized circulation outside the core
+ok 14 - Regularized circulation approaches quantized circulation outside the core
+  ---
+  duration_ms: 0.164098
+  type: 'test'
+  ...
+# Subtest: Full quadrature is covariant when source nodes and target rotate together
+ok 15 - Full quadrature is covariant when source nodes and target rotate together
+  ---
+  duration_ms: 3.18028
+  type: 'test'
+  ...
+# Subtest: Finite invalid parameters fail closed
+ok 16 - Finite invalid parameters fail closed
+  ---
+  duration_ms: 0.217299
+  type: 'test'
+  ...
+# Subtest: Zero winding is a valid zero flow
+ok 17 - Zero winding is a valid zero flow
+  ---
+  duration_ms: 4.609331
+  type: 'test'
+  ...
+# Subtest: Invalid query arrays cannot produce an accepted nonfinite field
+ok 18 - Invalid query arrays cannot produce an accepted nonfinite field
+  ---
+  duration_ms: 3.607105
+  type: 'test'
+  ...
+1..18
+# tests 18
+# suites 0
+# pass 18
+# fail 0
+# cancelled 0
+# skipped 0
+# todo 0
+# duration_ms 123.226092

@@ -1,0 +1,18 @@
+name: Numerical verification
+on: [push, pull_request, workflow_dispatch]
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+      - run: node --test tests/core.test.cjs
+      - run: node tools/benchmark.cjs
+      - run: python3 tools/verify_snapshots.py
+      - run: python3 tools/build.py
+      - run: git diff --exit-code -- index.html evidence/numerical-benchmark.json

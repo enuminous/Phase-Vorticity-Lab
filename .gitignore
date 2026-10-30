@@ -1,0 +1,8 @@
+dist/
+.openai/
+.lake/
+**/.lake/
+__pycache__/
+evidence/local-formal/
+*.zip
+.DS_Store
